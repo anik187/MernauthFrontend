@@ -11,12 +11,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import AuthProvider from "./lib/authProvider";
 import Login from "./screens/Login.jsx";
 import Homescreen from "./screens/Homescreen.jsx";
 import Register from "./screens/Register.jsx";
 import Profilescreen from "./screens/Profilescreen.jsx";
 import Protectedroute from "./components/Protectedroute.jsx";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -56,7 +59,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <RouterProvider router={router} />
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>
