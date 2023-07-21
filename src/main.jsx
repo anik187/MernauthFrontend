@@ -50,7 +50,7 @@ const router = createBrowserRouter(
   )
 );
 
-if (process.env.NODE_ENV === "production") disableReactDevTools();
+if (import.meta.env.MODE === "production") disableReactDevTools();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
