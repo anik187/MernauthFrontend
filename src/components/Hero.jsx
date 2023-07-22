@@ -12,7 +12,7 @@ function Hero() {
     "This is a boilerplate for MERN authentication that stores a JWT in an HTTP-only cookie. It also uses material-tailwind and react-query library";
   const title = "MERN Authentication";
   return (
-    <Card className="mt-6 w-1/3 flex flex-col items-center">
+    <Card className="mt-6 w-2/3 flex flex-col items-center">
       <CardBody className="flex flex-col items-center">
         <Typography
           variant="h5"

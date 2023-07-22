@@ -41,17 +41,21 @@ export default function Header() {
   });
 
   const [openNav, setOpenNav] = React.useState(false);
-
-  const handleWindowResize = () =>
-    window.innerWidth >= 960 && setOpenNav(false);
-
+  function getCurrentDimension() {
+    return window.innerWidth;
+  }
+  const [screenSize, setScreenSize] = React.useState(getCurrentDimension());
   React.useEffect(() => {
+    const handleWindowResize = () => {
+      setScreenSize(getCurrentDimension());
+      screenSize >= 960 && setOpenNav(false);
+    };
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
+  }, [screenSize]);
 
   const NavList = () => {
     const authCtx = React.useContext(authContext);
@@ -64,6 +68,7 @@ export default function Header() {
             className="flex gap-x-2 items-center"
             color="indigo"
             size="sm"
+            onClick={() => screenSize <= 640 && setOpenNav((prev) => !prev)}
           >
             <UserIcon className="h-5 w-5" />
             <p className="text-xs normal-case">Sign In</p>
@@ -75,6 +80,7 @@ export default function Header() {
             variant="filled"
             size="sm"
             className="flex gap-x-2 items-center"
+            onClick={() => screenSize && setOpenNav((prev) => !prev)}
           >
             <ArrowRightOnRectangleIcon className="h-5 w-5" />
             <p className="text-xs normal-case">Sign Up</p>
@@ -107,7 +113,13 @@ export default function Header() {
       // {JSON.parse(localStorage.getItem("userInfo"))["name"]}
     );
   };
-
+  if (mutation.isLoading) {
+    return (
+      <div className="flex items-center justify-center pt-3 w-full">
+        <Spinner className="h-10 w-10" />
+      </div>
+    );
+  }
   return (
     <Navbar
       className="w-full px-6 py-3 rounded-none"
