@@ -2,8 +2,8 @@ import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { useRef, useContext } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { updateUser } from "../lib/authApi";
-import authContext from "../lib/authContext";
+import { updateUser } from "../lib/authApi.js";
+import authContext from "../lib/authContext.js";
 import { toast } from "react-toastify";
 export default function Profilescreen() {
   const authCtx = useContext(authContext);

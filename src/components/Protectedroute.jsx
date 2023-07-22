@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import authContext from "../lib/authContext";
+import authContext from "../lib/authContext.js";
 
 function Protectedroute({ isSignedIn, children }) {
   const authCtx = React.useContext(authContext);

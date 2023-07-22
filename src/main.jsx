@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import AuthProvider from "./lib/authProvider";
+import AuthProvider from "./lib/AuthProvider.jsx";
 import Login from "./screens/Login.jsx";
 import Homescreen from "./screens/Homescreen.jsx";
 import Register from "./screens/Register.jsx";

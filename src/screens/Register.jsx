@@ -8,12 +8,11 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useContext } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { registerUser } from "../lib/authApi";
-import authContext from "../lib/authContext";
+import { registerUser } from "../lib/authApi.js";
+import authContext from "../lib/authContext.js";
 export default function Register() {
   const authCtx = useContext(authContext);
   const nav = useNavigate();
-  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: registerUser,
     onSuccess: (data) => {

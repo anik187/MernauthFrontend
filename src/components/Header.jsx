@@ -17,8 +17,8 @@ import {
   ArrowRightOnRectangleIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import authContext from "../lib/authContext";
-import { logoutUser } from "../lib/authApi";
+import authContext from "../lib/authContext.js";
+import { logoutUser } from "../lib/authApi.js";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";

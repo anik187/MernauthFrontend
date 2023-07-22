@@ -7,14 +7,13 @@ import {
 } from "@material-tailwind/react";
 import { useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import { loginUser } from "../lib/authApi";
-import authContext from "../lib/authContext";
+import { loginUser } from "../lib/authApi.js";
+import authContext from "../lib/authContext.js";
 export default function Login() {
   const authCtx = useContext(authContext);
   const nav = useNavigate();
-  //const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
